@@ -85,6 +85,16 @@
       const hoursDegrees = ((hours/12) * 360) + 90;
       const minutesDegrees = ((minutes/60) * 360) + 90;
 
+      if(seconds === 0) {
+        secondHand.style.transitionDuration = '0s';
+        minHand.style.transitionDuration = '0s';
+        hourHand.style.transitionDuration = '0s';
+      } else {
+        secondHand.style.transitionDuration = "all .05s";
+        minHand.style.transitionDuration = 'all .05s';
+        hourHand.style.transitionDuration = 'all .05s';
+      }
+
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
       hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
       minHand.style.transform = `rotate(${minutesDegrees}deg)`;
