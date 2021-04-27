@@ -80,7 +80,7 @@ const inventors = [
   const sortedPeople = people.sort((a, b) => {
     const [aLast, _] = a.split(", ");
     const [bLast, __] = b.split(", ");
-    return aLast > bLast ? -1 : 1;
+    return aLast > bLast ? 1 : -1;
   })
 
   console.log("Sorted People: ", sortedPeople)
@@ -89,11 +89,9 @@ const inventors = [
   // Sum up the instances of each of these
   const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
-//   let count = 0;
+  const transportation = data.reduce((countObj, transportMethod) => {
+    countObj[transportMethod] ? countObj[transportMethod]++ : countObj[transportMethod] = 1;
+    return countObj;
+  }, {})
 
-//   const countReducer = (accumulator, currVal) => {
-//       if(accumulator === currVal) count++;
-//     };
-  
-//   ages.reduce(countReducer)
-//   console.log("Repetition: ", count)
+  console.log("Transport Data Count: ", transportation);
