@@ -24,6 +24,9 @@ fetch(endpoint)
   .then( res => res.json())
   .then( data => cities.push(...data))
 
+const API = async () => await fetch(endpoint).then( res => res.json()).then( data => console.log(data));
+API();
+
 function findMatches(wordToMatch, cities){
 
   const regex = new RegExp(wordToMatch, "gi");
