@@ -41,15 +41,24 @@ function scrubProgress(e){
     }
 }
 
+function rangeScrub(){
+    if(mousedown){
+        video[this.name] = this.value;
+    }
+}
+
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
 video.addEventListener("timeupdate", handleProgress);
-progress.addEventListener("click", scrub)
-progress.addEventListener("mousemove", () => mousedown && scrub)
+progress.addEventListener("click", scrub);
+progress.addEventListener("mousemove", () => mousedown && scrub);
 progress.addEventListener("mousedown", () => mousedown = true);
 progress.addEventListener("mouseup", () => mousedown = false);
-progress.addEventListener("mousemove", scrubProgress)
+progress.addEventListener("mousemove", scrubProgress);
 toggle.addEventListener("click", togglePlay);
-skipButtons.forEach( button => button.addEventListener("click", skip))
-ranges.forEach( range => range.addEventListener("change", handleRangeUpdate))
+skipButtons.forEach( button => button.addEventListener("click", skip));
+ranges.forEach( range => range.addEventListener("change", handleRangeUpdate));
+ranges.forEach( range => range.addEventListener("mousedown", () => mousedown = true));
+ranges.forEach( range => range.addEventListener("mouseup", () => mousedown = false));
+ranges.forEach( range => range.addEventListener("mousemove", rangeScrub));
