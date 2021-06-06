@@ -7,6 +7,19 @@
 </head>
 <body>
 <script>
+const keys = [];
+const password = "secret";
+
+function checkKeys(e){
+  keys.push(e.key);
+  keys.splice(-password.length - 1, keys.length - password.length);
+
+  if(keys.join("").includes(password)) console.log("Secret Activated!")
+  console.log(keys)
+}
+
+window.addEventListener("keyup", checkKeys)
+
 </script>
 </body>
 </html>
