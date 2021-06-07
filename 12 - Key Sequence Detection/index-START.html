@@ -14,7 +14,11 @@ function checkKeys(e){
   keys.push(e.key);
   keys.splice(-password.length - 1, keys.length - password.length);
 
-  if(keys.join("").includes(password)) console.log("Secret Activated!")
+  if(keys.join("").includes(password)) {
+    console.log("Secret Activated!")
+    cornify_add();
+  }
+  
   console.log(keys)
 }
 
